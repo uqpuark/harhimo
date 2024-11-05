@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>졸업 연주회에 와주셔서 감사합니다</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        h1 { font-size: 24px; }
+        button { font-size: 18px; margin: 10px; padding: 10px 20px; }
+        .message { margin-top: 20px; font-size: 20px; font-weight: bold; }
+        img { max-width: 100%; height: auto; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+    <h1>하림이의 졸업 연주회를 위해 귀한 발걸음 해주신 여러분, 진심으로 감사드립니다.</h1>
+    <p>아래에서 해당하는 버튼을 눌러주세요<br>
+    (힌트: 할아버지 생신파티 날짜 / 내 생일 / 스승의 날)<br>
+    ex) 0220 입력</p>
+
+    <button onclick="requestPassword('family')">가족</button>
+    <button onclick="requestPassword('friend')">My friend</button>
+    <button onclick="requestPassword('teacher')">선생님</button>
+
+    <div class="message" id="message"></div>
+
+    <script>
+        function requestPassword(visitor) {
+            // Define passwords for each category
+            const passwords = {
+                family: "1003",    // 얼마 전 할아버지 생신파티 날짜
+                friend: "0703",    // 내 생일
+                teacher: "0515"    // 스승의 날
+            };
+
+            // Prompt user to enter password
+            let password = prompt("비밀번호를 입력해 주세요:");
+
+            // Check if password is correct
+            if (password === passwords[visitor]) {
+                showMessage(visitor);
+            } else {
+                alert("비밀번호가 틀렸습니다.");
+            }
+        }
+
+        function showMessage(visitor) {
+            let message;
+            if (visitor === 'family') {
+                message = `할머니, 할아버지, 이모, 엄마아빠, 오츠, 오서윤 모두 바쁜 와중에도 먼 길까지 찾아 주셔서 진심으로 감사드립니다.❤️
+항상 챙겨 주시고 마음 써 주신 덕분에 무사히 졸업연주를 마무리할 수 있게 되었어요!
+앞으로도 저의 걸음을 따뜻하게 지켜봐 주시길 바랍니다! 제가 제일 사랑해요!❤️
+<br><img src="https://i.imgur.com/kQpmxz1.png" alt="포스터">
+<br><img src="https://i.imgur.com/Ue20GMd.png" alt="편지">`;
+            } else if (visitor === 'friend') {
+                message = `여어 얘드라~~ 진짜 먼길 와줘서 너무 고맙다.. 이게 뭐라고 와주다니.... 감동의 눈물 철철이다.. 알지...???🥹
+다들 넘 멀리 살고.. 바쁜 거 알아... 귀찮을텐데 당연하게 선뜻 먼 길 와줘서 너무 고맙구.. 다들 제일 고마워 진짜... 나 너네 잊지 않는다 운명을 함께 하자 우리 ^^ㅋㅎㅋㅎ 할 말이 많지만!!! 이만 줄일게!!!
+사랑하고~~ 조심히 가라!!!!!!!!! 사진 공유하면서 다 따로 연락할게!!! 빠이!!!!!!❤️
+<br><img src="https://i.imgur.com/kQpmxz1.png" alt="포스터">
+<br><img src="https://i.imgur.com/Ue20GMd.png" alt="편지">`;
+            } else if (visitor === 'teacher') {
+                message = `사랑하고 존경합니다!!!
+덕분에 많은 걸 배울 수 있었고, 오늘 이 자리에 설 수 있었습니다.❤️
+그 가르침을 마음 깊이 새기며 더 열심히 나아가겠습니다!! 최고로 감사드려요!!❤️
+<br><img src="https://i.imgur.com/kQpmxz1.png" alt="포스터">
+<br><img src="https://i.imgur.com/Ue20GMd.png" alt="편지">`;
+            }
+            document.getElementById("message").innerHTML = message;
+        }
+    </script>
+
+</body>
+</html>
